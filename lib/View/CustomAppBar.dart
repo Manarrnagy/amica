@@ -1,3 +1,4 @@
+import 'package:amica_task_one/theme/AppColors.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,7 +18,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => Size.fromHeight(height);
   @override
   Widget build(BuildContext context) {
-    const lightPurple = const Color(0xff263F77);
     return Stack(
       overflow: Overflow.visible,
       children: [
@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           alignment: Alignment.topLeft,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            color: lightPurple,
+            color: AppColors.darkPurple,
           ),
           child: child,
         ),

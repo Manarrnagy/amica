@@ -1,3 +1,5 @@
+import 'package:amica_task_one/View/Components.dart';
+import 'package:amica_task_one/theme/AppColors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,20 +11,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
-    const mediumPurple = const Color(0xff263F77); //app bar purple
-    const grey = const Color(0xff4B5355); //font grey
-    const lightMint = const Color(0xffEAFCFE);
-    const lightPurple = const Color(0xffE7ECFF);
-    const mint = const Color(0xff6AC6BB);
-    const babyBlue = const Color(0xffEAF7FD);
-    //const faded babyBlue
     return Scaffold(
+      key: scaffoldKey,
+      endDrawer: Drawer(),
       body: SingleChildScrollView(
         child: Container(
-          color: babyBlue,
+          color: AppColors.lightMint,
           //height: double.infinity,
           child: Column(
             children: [
@@ -46,7 +44,7 @@ class _HomeState extends State<Home> {
                           end: Alignment.bottomCenter,
                           colors: [
                             Colors.transparent,
-                            babyBlue,
+                            AppColors.lightMint,
                           ],
                         ),
                       ),
@@ -64,21 +62,92 @@ class _HomeState extends State<Home> {
                         //  24,
                       ),
                     ),
-                    PositionedDirectional(
-                      top: 78, //48,
-                      end: -5, //302,
-                      // end: -100,
-                      child: FloatingActionButton(
-                        // shape: ShapeBorder(),
-                        onPressed: () {
-                          Drawer(
-                            child: Container(
-                              color: babyBlue,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
+                    InkWell(
+                        child: PositionedDirectional(
+                          top: 78, //48,
+                          end: -5, //302,
+                          // end: -100,
+                          child: Stack(
+                            alignment: Alignment.centerRight,
+                            children: [
+                              Align(
+                                child: Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.13,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.04,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(
+                                        30,
+                                      ),
+                                      bottomLeft: Radius.circular(
+                                        30,
+                                      ),
+                                      bottomRight: Radius.circular(
+                                        5,
+                                      ),
+                                      topRight: Radius.circular(
+                                        5,
+                                      ),
+                                    ),
+                                    color: AppColors.white,
+                                  ),
+                                  alignment: Alignment.centerRight,
+                                  clipBehavior: Clip.antiAlias,
+                                ),
+                                alignment: Alignment.centerRight,
+                              ),
+                              Align(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.125,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.13,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(
+                                        100,
+                                      ),
+                                      bottomLeft: Radius.circular(
+                                        100,
+                                      ),
+                                      bottomRight: Radius.circular(
+                                        0,
+                                      ),
+                                      topRight: Radius.circular(
+                                        0,
+                                      ),
+                                    ),
+                                    color: AppColors.white,
+                                  ),
+                                  alignment: Alignment.centerRight,
+                                  clipBehavior: Clip.antiAlias,
+                                ),
+                                alignment: Alignment.centerRight,
+                              ),
+                              Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.07,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(300),
+                                    bottomLeft: Radius.circular(300),
+                                    topRight: Radius.circular(20),
+                                  ),
+                                  color: AppColors.white,
+                                ),
+                                child: Image.asset(
+                                  "assets/Images/birdLogo.png",
+                                  scale: 3,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        onTap: () {
+                          scaffoldKey.currentState!.openEndDrawer();
+                        }),
                   ],
                 ),
               ),
@@ -87,7 +156,7 @@ class _HomeState extends State<Home> {
                 style: GoogleFonts.nunito(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: mediumPurple,
+                  color: AppColors.darkPurple,
                 ),
               ),
               Text(
@@ -95,22 +164,12 @@ class _HomeState extends State<Home> {
                 style: GoogleFonts.nunito(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: mediumPurple),
+                    color: AppColors.darkPurple),
               ),
-              MaterialButton(
-                onPressed: () {},
-                color: mint,
-                minWidth: 325,
-                height: 40,
-                child: Text(
-                  "How you feeling today ?",
-                  style: GoogleFonts.nunito(fontSize: 16, color: Colors.white),
-                ),
-                splashColor: mediumPurple,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                ),
-              ),
+              AppComponents.bottomButton(context, "How you feeling today ?",
+                  () {
+                Navigator.of(context).pushNamed("chat");
+              }),
               //--------------------------------------------------
               Container(
                 margin: EdgeInsets.only(top: 30, bottom: 30),
@@ -177,7 +236,7 @@ class _HomeState extends State<Home> {
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: AssetImage(
-                                      "assets/Images/Group 1439.png")),
+                                      "assets/Images/nuturing_videos.png")),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
                         ),
@@ -193,7 +252,7 @@ class _HomeState extends State<Home> {
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: AssetImage(
-                                      "assets/Images/Group 1440.png")),
+                                      "assets/Images/soothing_videos.png")),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
                         ),
@@ -209,7 +268,7 @@ class _HomeState extends State<Home> {
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: AssetImage(
-                                      "assets/Images/Group 1441.png")),
+                                      "assets/Images/community-care.png")),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
                         ),
@@ -229,12 +288,12 @@ class _HomeState extends State<Home> {
                   children: [
                     MaterialButton(
                       onPressed: () {},
-                      color: mediumPurple,
+                      color: AppColors.darkPurple,
                       minWidth: 66,
                       height: 66,
                       child: Image.asset(
-                        "assets/Images/Group 253.png",
-                        color: mint,
+                        "assets/Images/breath_icon.png",
+                        color: AppColors.mint,
                       ),
                       splashColor: Colors.white,
                       shape: const RoundedRectangleBorder(
@@ -243,12 +302,12 @@ class _HomeState extends State<Home> {
                     ),
                     MaterialButton(
                       onPressed: () {},
-                      color: mediumPurple,
+                      color: AppColors.darkPurple,
                       minWidth: 66,
                       height: 66,
                       child: Image.asset(
                         "assets/Images/edit.png",
-                        color: mint,
+                        color: AppColors.mint,
                       ),
                       splashColor: Colors.white,
                       shape: const RoundedRectangleBorder(
@@ -256,13 +315,15 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     MaterialButton(
-                      onPressed: () {},
-                      color: mediumPurple,
+                      onPressed: () {
+                        Navigator.of(context).pushNamed("music");
+                      },
+                      color: AppColors.darkPurple,
                       minWidth: 66,
                       height: 66,
                       child: Image.asset(
                         "assets/Images/music-alt.png",
-                        color: mint,
+                        color: AppColors.mint,
                       ),
                       splashColor: Colors.white,
                       shape: const RoundedRectangleBorder(
@@ -273,7 +334,7 @@ class _HomeState extends State<Home> {
                       "  Breath",
                       style: GoogleFonts.nunito(
                           fontSize: 16,
-                          color: mediumPurple,
+                          color: AppColors.darkPurple,
                           fontWeight: FontWeight.normal),
                       textAlign: TextAlign.right,
                     ),
@@ -281,7 +342,7 @@ class _HomeState extends State<Home> {
                       "Assessments",
                       style: GoogleFonts.nunito(
                           fontSize: 16,
-                          color: mediumPurple,
+                          color: AppColors.darkPurple,
                           fontWeight: FontWeight.normal),
                       textAlign: TextAlign.right,
                     ),
@@ -289,7 +350,7 @@ class _HomeState extends State<Home> {
                       "Music",
                       style: GoogleFonts.nunito(
                           fontSize: 16,
-                          color: mediumPurple,
+                          color: AppColors.darkPurple,
                           fontWeight: FontWeight.normal),
                       textAlign: TextAlign.right,
                     ),
@@ -321,7 +382,7 @@ class _HomeState extends State<Home> {
                     width: MediaQuery.of(context).size.width,
                     height: 235,
                     decoration: BoxDecoration(
-                        color: mediumPurple.withAlpha(180),
+                        color: AppColors.darkPurple.withAlpha(180),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
                             bottomLeft: Radius.circular(20),
@@ -419,7 +480,7 @@ class _HomeState extends State<Home> {
                     width: MediaQuery.of(context).size.width,
                     height: 235,
                     decoration: BoxDecoration(
-                        color: mediumPurple.withAlpha(180),
+                        color: AppColors.darkPurple.withAlpha(180),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(300),
                             bottomLeft: Radius.circular(20),
@@ -498,7 +559,7 @@ class _HomeState extends State<Home> {
                   style: GoogleFonts.nunito(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: mediumPurple),
+                      color: AppColors.darkPurple),
                 ),
               ),
               Container(
@@ -510,13 +571,14 @@ class _HomeState extends State<Home> {
                 style: GoogleFonts.nunito(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: mediumPurple),
+                    color: AppColors.darkPurple),
               ),
               Container(
-                margin: EdgeInsets.only(top: 10, bottom: 50),
+                margin: EdgeInsets.only(top: 10, bottom: 70),
                 child: Text(
                   "We are Preparing amazing and most\nrelaxing trips for you stay tuned",
-                  style: GoogleFonts.nunito(fontSize: 16, color: mediumPurple),
+                  style: GoogleFonts.nunito(
+                      fontSize: 16, color: AppColors.darkPurple),
                   textAlign: TextAlign.center,
                 ),
               ),
