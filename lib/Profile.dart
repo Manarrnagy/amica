@@ -16,26 +16,26 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    final listItems = [
-      "My Account",
-      "Happiness Coins",
-      "Settings",
-      "Self Report",
-      "My Appointments",
-      "My wallet",
-      "عربي",
-      "Change Password"
-    ];
-    final listIcons = [
-      Icons.people_outline_rounded,
-      Icons.star_border_outlined,
-      Icons.settings,
-      Icons.report,
-      Icons.calendar_month,
-      Icons.wallet_travel_outlined,
-      Icons.smart_button,
-      Icons.lock_open_outlined
-    ];
+    // final listItems = [
+    //   "My Account",
+    //   "Happiness Coins",
+    //   "Settings",
+    //   "Self Report",
+    //   "My Appointments",
+    //   "My wallet",
+    //   "عربي",
+    //   "Change Password"
+    // ];
+    // final listIcons = [
+    //   Icons.people_outline_rounded,
+    //   Icons.star_border_outlined,
+    //   Icons.settings,
+    //   Icons.report,
+    //   Icons.calendar_month,
+    //   Icons.wallet_travel_outlined,
+    //   Icons.smart_button,
+    //   Icons.lock_open_outlined
+    // ];
     return Scaffold(
       //-----------------------------------App Bar-----------------------------
       appBar: CustomAppBar(
@@ -53,21 +53,24 @@ class _ProfileState extends State<Profile> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   //----------------------Back button----------------------
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.arrow_back_rounded,
-                        size: 16.0,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        'Back',
-                        style: GoogleFonts.nunito(
-                            fontSize: 16,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                  InkWell(
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.arrow_back_rounded,
+                          size: 16.0,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'Back',
+                          style: GoogleFonts.nunito(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    onTap: Navigator.of(context).pop,
                   ),
                   Text(
                     "Mona",
@@ -129,7 +132,9 @@ class _ProfileState extends State<Profile> {
                         style: ElevatedButton.styleFrom(
                             primary: Colors.transparent, // Background color
                             elevation: 0),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, "account");
+                        },
                         icon: Icon(
                           Icons.account_box_outlined,
                           size: 20.0,
@@ -159,7 +164,9 @@ class _ProfileState extends State<Profile> {
                         style: ElevatedButton.styleFrom(
                             primary: Colors.transparent, // Background color
                             elevation: 0),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed("changePass");
+                        },
                         icon: Icon(
                           Icons.star_outline_rounded,
                           size: 20.0,
@@ -189,7 +196,9 @@ class _ProfileState extends State<Profile> {
                         style: ElevatedButton.styleFrom(
                             primary: Colors.transparent, // Background color
                             elevation: 0),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, "settings");
+                        },
                         icon: Icon(
                           Icons.settings_outlined,
                           size: 20.0,

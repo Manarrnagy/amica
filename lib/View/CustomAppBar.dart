@@ -35,13 +35,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           top: avatartop, //48,
           start: avatarStart, //302,
           // end: -100,
-          child: CircleAvatar(
-            backgroundColor: Colors.transparent,
-            backgroundImage: AssetImage(
-              "assets/Images/avatar.png",
+          child: InkWell(
+            child: CircleAvatar(
+              backgroundColor: Colors.transparent,
+              backgroundImage: AssetImage(
+                "assets/Images/avatar.png",
+              ),
+              radius: avatarHeight + 2,
+              //  24,
             ),
-            radius: avatarHeight + 2,
-            //  24,
+            onTap: () {
+              Navigator.of(context).pushNamed("profile");
+            },
           ),
         ),
       ],

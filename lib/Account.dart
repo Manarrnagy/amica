@@ -1,5 +1,6 @@
 import 'package:amica_task_one/View/Background.dart';
 import 'package:amica_task_one/View/Components.dart';
+import 'package:amica_task_one/theme/RegularNunito.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,7 +23,7 @@ class _AccountState extends State<Account> {
     var phoneController = TextEditingController();
     var genderController = TextEditingController();
     var DateOfBirth = TextEditingController();
-    final formGlobalKey = GlobalKey<FormState>();
+   // final formGlobalKey = GlobalKey<FormState>();
 
     firstNameController.text = "Mona";
     lastNameController.text = "Mohamed";
@@ -209,7 +210,12 @@ class _AccountState extends State<Account> {
                 ),
                 Center(
                     child: AppComponents.bottomButton(
-                        context, "Save Changes", () {}))
+                        context,
+                        () {},
+                        RegularNunito(
+                            input: "Save Changes",
+                            color: AppColors.white,
+                            align: TextAlign.center)))
               ],
             ),
           ),

@@ -31,7 +31,7 @@ class _SettingsState extends State<Settings> {
       Image.asset("assets/Images/mountains-clouds.png"),
       Image.asset("assets/Images/pexels-eberhard-grossgasteiger-1287145.png")
     ];
-    CarouselController buttonCarouselController = CarouselController();
+    // CarouselController buttonCarouselController = CarouselController();
     return Scaffold(
       //-----------------------------------App Bar-----------------------------
       appBar: CustomAppBar(
@@ -260,7 +260,6 @@ class _SettingsState extends State<Settings> {
                   )
                 ],
 
-                /// Called whenever the page in the center of the viewport changes.
                 onPageChanged: (value) {
                   print('Page changed: $value');
                 },

@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    DateTime now = DateTime.now();
+    //DateTime now = DateTime.now();
     return Scaffold(
       key: scaffoldKey,
       endDrawer: Drawer(),
@@ -31,11 +31,16 @@ class _HomeState extends State<Home> {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    Image.asset(
-                      "assets/Images/sun-sunset.png",
-                      fit: BoxFit.cover,
-                      width: 674,
-                      height: 388,
+                    InkWell(
+                      child: Image.asset(
+                        "assets/Images/sun-sunset.png",
+                        fit: BoxFit.cover,
+                        width: 674,
+                        height: 388,
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(context, "profile");
+                      },
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -146,7 +151,8 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         onTap: () {
-                          scaffoldKey.currentState!.openEndDrawer();
+                          Navigator.pushNamed(context, "chat");
+                          //    scaffoldKey.currentState!.openEndDrawer();
                         }),
                   ],
                 ),
@@ -166,10 +172,17 @@ class _HomeState extends State<Home> {
                     fontWeight: FontWeight.bold,
                     color: AppColors.darkPurple),
               ),
-              AppComponents.bottomButton(context, "How you feeling today ?",
-                  () {
-                Navigator.of(context).pushNamed("chat");
-              }),
+              AppComponents.bottomButton(
+                context,
+                () {
+                  Navigator.of(context).pushNamed("Statistics");
+                },
+                Text(
+                  "How you feeling today ?",
+                  style:
+                      GoogleFonts.nunito(color: AppColors.white, fontSize: 16),
+                ),
+              ),
               //--------------------------------------------------
               Container(
                 margin: EdgeInsets.only(top: 30, bottom: 30),

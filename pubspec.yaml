@@ -72,6 +72,7 @@ flutter:
   assets:
     - assets/Images/
     - assets/Images/Music/
+    - assets/Images/Sleeping/
 
   #   - images/a_dot_ham.jpeg
 
