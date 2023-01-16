@@ -1,7 +1,5 @@
 import 'package:amica_task_one/View/Background.dart';
 import 'package:amica_task_one/theme/AppColors.dart';
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_switch/flutter_switch.dart';

@@ -1,6 +1,6 @@
 import 'package:amica_task_one/Account.dart';
+import 'package:amica_task_one/Breath.dart';
 import 'package:amica_task_one/Change_password.dart';
-import 'package:amica_task_one/FlowSplash.dart';
 import 'package:amica_task_one/Profile.dart';
 import 'package:amica_task_one/Settings.dart';
 import 'package:amica_task_one/Sign_in.dart';
@@ -24,7 +24,7 @@ void main() {
   runApp(const MyApp());
 }
 
-//ThemeManager _themeManager = ThemeManager();
+ThemeManager _themeManager = ThemeManager();
 
 class MyApp extends StatelessWidget {
   // static final ValueNotifier<ThemeMode> = ValueNotifier(ThemeMode.light);
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
         "music": (context) => Music(),
         "Navbar": (context) => FloatingNavBar(),
         "Splash": (context) => Splash(),
-        "ChangePassword": (context) => ChangePassword(),
+        // "ChangePassword": (context) => ChangePassword(),
         "Statistics": (context) => Statistic(),
         "profile": (context) => Profile(),
         "changePass": (context) => ChangePassword(),
@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
         "settings": (context) => Settings(),
         // "NewAlarm": (context) => NewAlarm(),
       },
-      home: FlowSplash(),
+      home: Breath(),
     );
   }
 }
