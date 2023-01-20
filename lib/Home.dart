@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
     //DateTime now = DateTime.now();
     return Scaffold(
       key: scaffoldKey,
-      endDrawer: Drawer(),
+      //   bottomNavigationBar: FloatingNavBar(),
       body: SingleChildScrollView(
         child: Container(
           color: AppColors.lightMint,

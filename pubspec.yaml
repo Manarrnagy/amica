@@ -38,6 +38,8 @@ dependencies:
   floating_bottom_navigation_bar: ^1.5.2
   chat_bubbles: ^1.4.0
   fl_chart: ^0.55.2
+  expansion_tile_card: ^2.0.0
+  expansion_card: ^0.1.0
 
 
 

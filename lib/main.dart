@@ -1,5 +1,4 @@
 import 'package:amica_task_one/Account.dart';
-import 'package:amica_task_one/Breath.dart';
 import 'package:amica_task_one/Change_password.dart';
 import 'package:amica_task_one/Profile.dart';
 import 'package:amica_task_one/Settings.dart';
@@ -13,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'Chat.dart';
+import 'Home.dart';
 import 'Music.dart';
 import 'Onboarding.dart';
 import 'Onboarding1.dart';
@@ -65,10 +65,10 @@ class MyApp extends StatelessWidget {
         "changePass": (context) => ChangePassword(),
         "account": (context) => Account(),
         "settings": (context) => Settings(),
-        "settings": (context) => Settings(),
+        "home": (context) => Home(),
         // "NewAlarm": (context) => NewAlarm(),
       },
-      home: Breath(),
+      home: FloatingNavBar(),
     );
   }
 }
