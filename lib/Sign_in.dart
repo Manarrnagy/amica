@@ -1,11 +1,10 @@
 import 'package:amica_task_one/View/Background.dart';
+import 'package:amica_task_one/View/FloatingNavBar.dart';
 import 'package:amica_task_one/theme/AppColors.dart';
 import 'package:amica_task_one/theme/BoldNunito.dart';
 import 'package:amica_task_one/theme/RegularNunito.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'Home.dart';
 
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
@@ -81,7 +80,7 @@ class _SigninState extends State<Signin> {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (BuildContext context) => const Home(),
+                      builder: (BuildContext context) => const FloatingNavBar(),
                     ),
                   );
                 },

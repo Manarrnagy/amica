@@ -300,7 +300,9 @@ class _HomeState extends State<Home> {
                   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, "breath");
+                      },
                       color: AppColors.darkPurple,
                       minWidth: 66,
                       height: 66,

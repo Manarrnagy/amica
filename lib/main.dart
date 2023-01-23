@@ -5,12 +5,14 @@ import 'package:amica_task_one/Settings.dart';
 import 'package:amica_task_one/Sign_in.dart';
 import 'package:amica_task_one/Statistics.dart';
 import 'package:amica_task_one/View/FloatingNavBar.dart';
+import 'package:amica_task_one/View/premium_popup.dart';
 import 'package:amica_task_one/theme/AppColors.dart';
 import 'package:amica_task_one/theme/MyTheme.dart';
 import 'package:amica_task_one/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Breath.dart';
 import 'Chat.dart';
 import 'Home.dart';
 import 'Music.dart';
@@ -59,7 +61,7 @@ class MyApp extends StatelessWidget {
         "music": (context) => Music(),
         "Navbar": (context) => FloatingNavBar(),
         "Splash": (context) => Splash(),
-        // "ChangePassword": (context) => ChangePassword(),
+        "breath": (context) => Breath(),
         "Statistics": (context) => Statistic(),
         "profile": (context) => Profile(),
         "changePass": (context) => ChangePassword(),
@@ -68,7 +70,7 @@ class MyApp extends StatelessWidget {
         "home": (context) => Home(),
         // "NewAlarm": (context) => NewAlarm(),
       },
-      home: FloatingNavBar(),
+      home: PremiumPopUp(),
     );
   }
 }
